@@ -1,7 +1,11 @@
 import { createSystem, defaultConfig, defineConfig, type ThemingConfig } from '@chakra-ui/react';
 
 const theme: ThemingConfig = {
-  tokens: {},
+  tokens: {
+    fonts: {
+      logo: { value: `'IBM Plex Serif', serif` },
+    },
+  },
 };
 
 const customConfig = defineConfig({ theme });
