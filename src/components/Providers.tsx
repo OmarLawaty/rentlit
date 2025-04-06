@@ -5,7 +5,7 @@ import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { ChakraProvider } from '@chakra-ui/react';
 import { ThemeProvider } from 'next-themes';
 
-import { system } from './theme';
+import { system } from '../theme';
 
 interface ProvidersProps {
   children: React.ReactNode;
