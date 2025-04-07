@@ -11,3 +11,7 @@ export interface User {
     image: string | null;
   };
 }
+
+export interface ErrorResponse {
+  error: string;
+}
