@@ -4,14 +4,18 @@ import { Flex } from '@chakra-ui/react';
 import { Controller, useForm, type SubmitHandler } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 
+import { useSignUpMutation } from '@/hooks';
+
 import { schema, type SchemaType } from './schema';
 import { Input } from '../Input';
 import { Button } from '../Button';
 import { Form } from '../Form';
 
 const defaultValues: SchemaType = {
-  firstName: '',
-  lastName: '',
+  name: {
+    first: '',
+    last: '',
+  },
   email: '',
   password: '',
 };
@@ -22,9 +26,12 @@ export const SignUpForm = () => {
     mode: 'onChange',
     resolver: zodResolver(schema),
   });
+  const signUpMutation = useSignUpMutation();
 
-  const onSubmit: SubmitHandler<SchemaType> = data => {
-    console.log('Form submitted:', data);
+  const onSubmit: SubmitHandler<SchemaType> = async data => {
+    if (!form.formState.isValid || signUpMutation.isPending) return;
+
+    signUpMutation.mutate(data);
   };
 
   return (
@@ -32,7 +39,7 @@ export const SignUpForm = () => {
       <Flex flexDir='column' gap='5'>
         <Flex gap='4'>
           <Controller
-            name='firstName'
+            name='name.first'
             control={form.control}
             render={({ field, fieldState }) => (
               <Input
@@ -47,7 +54,7 @@ export const SignUpForm = () => {
           />
 
           <Controller
-            name='lastName'
+            name='name.last'
             control={form.control}
             render={({ field, fieldState }) => (
               <Input
@@ -95,7 +102,7 @@ export const SignUpForm = () => {
         />
       </Flex>
 
-      <Button type='submit' isDisabled={!form.formState.isValid}>
+      <Button type='submit' isDisabled={!form.formState.isValid} isLoading={signUpMutation.isPending}>
         Sign Up
       </Button>
     </Form>

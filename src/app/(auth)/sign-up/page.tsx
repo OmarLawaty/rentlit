@@ -1,6 +1,6 @@
-import { Flex, Heading, Text } from '@chakra-ui/react';
+import { Box, Flex, Heading, Text } from '@chakra-ui/react';
 
-import { SignUpForm, Logo } from '@/components';
+import { SignUpForm, Logo, Link } from '@/components';
 
 export default function Page() {
   return (
@@ -20,6 +20,13 @@ export default function Page() {
       </Flex>
 
       <SignUpForm />
+
+      <Box as='footer' textAlign={'center'}>
+        Have an account already?{' '}
+        <Link href='/login' prefetch color='#E7C9A5' fontWeight='bold'>
+          Login
+        </Link>
+      </Box>
     </>
   );
 }
