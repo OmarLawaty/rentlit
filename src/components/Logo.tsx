@@ -23,7 +23,7 @@ export const Logo = ({ variant = 'full', logoProps, ...props }: LogoProps) => (
       <Text
         fontFamily='logo'
         lineHeight='shorter'
-        fontSize='2xl'
+        fontSize='3xl'
         color='white'
         {...('textProps' in props && props.textProps)}
       >

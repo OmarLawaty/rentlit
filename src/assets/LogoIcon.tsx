@@ -45,8 +45,8 @@ export const LogoIcon = createIcon({
           y2='18.7778'
           gradientUnits='userSpaceOnUse'
         >
-          <stop stop-color='#FAFBFF' stop-opacity='0.49' />
-          <stop offset='1' stop-color='#FAFBFF' />
+          <stop stopColor='#FAFBFF' stopOpacity='0.49' />
+          <stop offset='1' stopColor='#FAFBFF' />
         </linearGradient>
         <linearGradient
           id='paint1_linear_4_1312'
@@ -56,8 +56,8 @@ export const LogoIcon = createIcon({
           y2='18.7778'
           gradientUnits='userSpaceOnUse'
         >
-          <stop stop-color='#FAFBFF' stop-opacity='0.49' />
-          <stop offset='1' stop-color='#FAFBFF' />
+          <stop stopColor='#FAFBFF' stopOpacity='0.49' />
+          <stop offset='1' stopColor='#FAFBFF' />
         </linearGradient>
       </defs>
     </>
