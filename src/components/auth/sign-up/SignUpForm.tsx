@@ -7,9 +7,9 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useSignUpMutation } from '@/hooks';
 
 import { schema, type SchemaType } from './schema';
-import { Input } from '../Input';
-import { Button } from '../Button';
-import { Form } from '../Form';
+import { Input } from '../../Input';
+import { Button } from '../../Button';
+import { Form } from '../../Form';
 
 const defaultValues: SchemaType = {
   name: {
