@@ -7,6 +7,8 @@ export default function Layout({ children }: Readonly<{ children: React.ReactNod
     <Flex as='main' flex='1'>
       <Flex flex='1' align='center' justify='center' p='4'>
         <Flex
+          as='section'
+          flexDir='column'
           gap='9'
           p='10'
           rounded='1.25rem'

@@ -3,3 +3,7 @@ export * from './Logo';
 export * from './Button';
 export * from './Loader';
 export * from './Image';
+export * from './Input';
+export * from './sign-up';
+export * from './Form';
+export * from './Link';
