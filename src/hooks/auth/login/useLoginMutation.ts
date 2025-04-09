@@ -14,7 +14,7 @@ export const useLoginMutation = (options?: UseMutationOptions<User, AxiosError<E
   useMutation<User, AxiosError<ErrorResponse>, LoginParams>({
     ...options,
     mutationFn: data =>
-      rentlit.post<User, AxiosResponse<User>, LoginParams>('/auth/sign-in', data).then(res => res.data),
+      rentlit.post<User, AxiosResponse<User>, LoginParams>('/auth/log-in', data).then(res => res.data),
     onSuccess: (...props) => {
       setAccessToken(props[0].token);
 

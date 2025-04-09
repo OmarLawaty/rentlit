@@ -35,8 +35,13 @@ export const SignUpForm = () => {
   };
 
   return (
-    <Form display='flex' flexDir='column' gap='9' onSubmit={form.handleSubmit(onSubmit, console.warn)}>
-      <Flex flexDir='column' gap='5'>
+    <Form
+      display='flex'
+      flexDir='column'
+      gap={['6', '7', '8', '9']}
+      onSubmit={form.handleSubmit(onSubmit, console.warn)}
+    >
+      <Flex flexDir='column' gap={['3', '4', '5']}>
         <Flex gap='4'>
           <Controller
             name='name.first'

@@ -8,13 +8,13 @@ interface InputProps extends ChakraInputProps {
 }
 
 export const Input = ({ containerProps, label, errorText, ...props }: InputProps) => (
-  <Field.Root display='flex' gap='2' {...containerProps}>
-    <Field.Label color='#D6E0FF' fontSize='md'>
+  <Field.Root display='flex' gap={['0.5', '1', '1.5', '2']} {...containerProps}>
+    <Field.Label color='#D6E0FF' fontSize={['xs', 'sm', 'md']}>
       {label}
     </Field.Label>
 
-    <ChakraInput {...props} />
+    <ChakraInput size={['sm', 'md', 'lg']} {...props} />
 
-    <Field.ErrorText fontSize='sm'>{errorText}</Field.ErrorText>
+    <Field.ErrorText fontSize={['2xs', 'xs', 'sm']}>{errorText}</Field.ErrorText>
   </Field.Root>
 );

@@ -4,7 +4,6 @@ export const inputRecipe = defineRecipe({
   base: {
     width: '100%',
     minWidth: '0',
-    minH: '14',
     px: '5',
     py: '4',
     outline: '0',
@@ -39,16 +38,19 @@ export const inputRecipe = defineRecipe({
       sm: {
         textStyle: 'sm',
         px: '2.5',
+        minH: '8',
         '--input-height': 'sizes.9',
       },
       md: {
         textStyle: 'sm',
         px: '3',
+        minH: '10',
         '--input-height': 'sizes.10',
       },
       lg: {
         textStyle: 'md',
         px: '5',
+        minH: '14',
         '--input-height': 'sizes.11',
       },
       xl: {
