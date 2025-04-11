@@ -1,17 +1,19 @@
+import cookies from 'js-cookie';
+
 export const setAccessToken = (token: string) => {
   if (typeof window === 'undefined') return;
 
-  localStorage.setItem('accessToken', token);
+  cookies.set('authToken', token, { expires: 30, secure: true, sameSite: 'Lax' });
 };
 
 export const getAccessToken = () => {
   if (typeof window === 'undefined') return null;
 
-  return localStorage.getItem('accessToken');
+  return cookies.get('authToken');
 };
 
 export const removeAccessToken = () => {
   if (typeof window === 'undefined') return;
 
-  localStorage.removeItem('accessToken');
+  cookies.remove('authToken');
 };

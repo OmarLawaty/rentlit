@@ -71,7 +71,11 @@ export const LoginForm = () => {
         />
       </Flex>
 
-      <Button type='submit' isDisabled={!form.formState.isValid} isLoading={loginMutation.isPending}>
+      <Button
+        type='submit'
+        isDisabled={!form.formState.isValid || loginMutation.isSuccess}
+        isLoading={loginMutation.isPending}
+      >
         Login
       </Button>
     </Form>

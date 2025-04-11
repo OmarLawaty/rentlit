@@ -107,7 +107,11 @@ export const SignUpForm = () => {
         />
       </Flex>
 
-      <Button type='submit' isDisabled={!form.formState.isValid} isLoading={signUpMutation.isPending}>
+      <Button
+        type='submit'
+        isDisabled={!form.formState.isValid || signUpMutation.isSuccess}
+        isLoading={signUpMutation.isPending}
+      >
         Sign Up
       </Button>
     </Form>
