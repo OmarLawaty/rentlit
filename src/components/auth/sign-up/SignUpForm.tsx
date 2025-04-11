@@ -31,7 +31,15 @@ export const SignUpForm = () => {
   const onSubmit: SubmitHandler<SchemaType> = async data => {
     if (!form.formState.isValid || signUpMutation.isPending) return;
 
-    signUpMutation.mutate(data);
+    signUpMutation.mutate(data, {
+      onError: error => {
+        if (error.response?.status === 409)
+          form.setError('email', {
+            type: 'custom',
+            message: 'Email already exists',
+          });
+      },
+    });
   };
 
   return (

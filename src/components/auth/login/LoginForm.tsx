@@ -27,7 +27,15 @@ export const LoginForm = () => {
   const onSubmit: SubmitHandler<SchemaType> = async data => {
     if (!form.formState.isValid || loginMutation.isPending) return;
 
-    loginMutation.mutate(data);
+    loginMutation.mutate(data, {
+      onError: error => {
+        if (error.response?.status === 401)
+          form.setError('password', {
+            type: 'custom',
+            message: 'Invalid password',
+          });
+      },
+    });
   };
 
   return (
