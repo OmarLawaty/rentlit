@@ -24,7 +24,7 @@ export default function Layout({ children }: Readonly<{ children: React.ReactNod
       <Box
         flex={['auto', null, null, null, '1']}
         minH={['none', null, null, null, 'svh']}
-        h={['30vh', null, null, null, 'none']}
+        h={['30vh', null, null, null, 'auto']}
         maxH={['80', null, null, null, 'none']}
         bgSize='cover'
         bgPos='center'
