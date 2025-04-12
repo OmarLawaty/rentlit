@@ -11,16 +11,12 @@ export const useLogin = () => {
     setAccessToken(token);
 
     router.push('/');
-
-    return true;
   };
 
   const logout = async () => {
     setAccessToken('');
 
     router.push('/login');
-
-    return true;
   };
 
   return {

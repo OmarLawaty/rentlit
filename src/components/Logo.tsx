@@ -16,7 +16,7 @@ type LogoProps = FlexProps & {
 } & (FullLogoProps | IconLogoProps);
 
 export const Logo = ({ variant = 'full', logoProps, ...props }: LogoProps) => (
-  <Flex align='center' w='fit' gap='1.5' {...props}>
+  <Flex align='center' w='fit' gap='1.5' userSelect='none' {...props}>
     <LogoIcon {...logoProps} />
 
     {variant === 'full' && (

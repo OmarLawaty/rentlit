@@ -7,3 +7,5 @@ export * from './Input';
 export * from './auth';
 export * from './Form';
 export * from './Link';
+export * from './header/Header';
+export * from './UserImage';

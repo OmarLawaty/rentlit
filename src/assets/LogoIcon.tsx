@@ -5,9 +5,7 @@ import { createIcon } from '@chakra-ui/react';
 export const LogoIcon = createIcon({
   displayName: 'LogoIcon',
   viewBox: '0 0 40 32',
-  defaultProps: {
-    width: '10',
-  },
+  defaultProps: { width: '10' },
   path: (
     <>
       <path
