@@ -24,7 +24,17 @@ export const UserImage = ({ image, name }: UserImageProps) => {
 
   return (
     <Flex>
-      {!isImageError && <Image src={image!} alt='' onError={() => setIsImageError(true)} width='8' height='8' />}
+      {!isImageError && (
+        <Image
+          src={image!}
+          alt=''
+          onError={() => setIsImageError(true)}
+          width='32'
+          height='32'
+          w={['6', null, '8']}
+          aspectRatio='square'
+        />
+      )}
 
       {isImageError && (
         <Flex
