@@ -23,7 +23,7 @@ export const Profile = () => {
   const [isPending, startTransition] = useTransition();
 
   return (
-    <Flex gap='6' align='center'>
+    <Flex gap={['4', null, '6']} align='center'>
       <User name={name} image={image} />
 
       <Button
@@ -53,7 +53,7 @@ const User = (props: UserProps) => {
     <Link href='/profile' display='flex' justifyContent='center' alignItems='center' gap='1.5'>
       <UserImage {...props} />
 
-      <Text fontSize='xl' fontWeight='semibold' color='#D6E0FF'>
+      <Text fontSize='xl' fontWeight='semibold' color='#D6E0FF' display={['none', null, 'block']}>
         {props.name.first}
       </Text>
     </Link>

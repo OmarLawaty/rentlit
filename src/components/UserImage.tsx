@@ -28,13 +28,13 @@ export const UserImage = ({ image, name }: UserImageProps) => {
 
       {isImageError && (
         <Flex
-          w='8'
+          w={['6', null, '8']}
           aspectRatio='square'
           justifyContent='center'
           alignItems='center'
           rounded='full'
           bg='#ACDDEE'
-          fontSize='md'
+          fontSize={['xs', 'sm', 'md']}
           fontWeight='bold'
           color='#111624'
         >
