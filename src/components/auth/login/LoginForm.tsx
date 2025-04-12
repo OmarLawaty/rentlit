@@ -34,6 +34,11 @@ export const LoginForm = () => {
             type: 'custom',
             message: 'Invalid password',
           });
+        if (error.response?.status === 404)
+          form.setError('email', {
+            type: 'custom',
+            message: 'Email not found',
+          });
       },
     });
   };
