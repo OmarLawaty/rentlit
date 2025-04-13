@@ -17,7 +17,7 @@ const queryFn =
     rentlit.get<User<typeof structure>>('/user', { params: { structure }, ...options }).then(res => res.data);
 
 export const useUserDataQuery = (structure: UserDataStructure = 'full', reqOptions?: ReqOptions) =>
-  useQuery({ queryKey: queryKey(structure), queryFn: queryFn(reqOptions) });
+  useQuery({ queryKey: queryKey(structure), queryFn: queryFn(reqOptions), refetchOnWindowFocus: false });
 
 useUserDataQuery.queryKey = queryKey;
 useUserDataQuery.queryFn = queryFn;
