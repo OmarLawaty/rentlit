@@ -1,12 +1,23 @@
-export interface User {
-  _id: string;
+export interface AuthUser {
   token: string;
-  user: {
-    name: Name;
-    email: string;
-    isVerified: boolean;
-    image: string | null;
-  };
+}
+
+export type User<structure = 'full'> = structure extends 'full'
+  ? FullUser
+  : structure extends 'minimal'
+  ? MinimalUser
+  : never;
+
+export interface MinimalUser {
+  name: Name;
+  image: string | null;
+}
+
+export interface FullUser extends MinimalUser {
+  _id: string;
+  email: string;
+  isVerified: boolean;
+  image: string | null;
 }
 
 export interface Name {

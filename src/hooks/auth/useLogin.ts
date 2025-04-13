@@ -2,7 +2,7 @@
 
 import { useRouter } from 'next/navigation';
 
-import { setAccessToken } from '@/api/helpers';
+import { removeAccessToken, setAccessToken } from '@/api/helpers';
 
 export const useLogin = () => {
   const router = useRouter();
@@ -14,7 +14,7 @@ export const useLogin = () => {
   };
 
   const logout = async () => {
-    setAccessToken('');
+    removeAccessToken();
 
     router.push('/login');
   };

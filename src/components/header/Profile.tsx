@@ -4,27 +4,27 @@ import { useTransition } from 'react';
 import { Flex, Text } from '@chakra-ui/react';
 
 import { LogoutIcon } from '@/assets';
-import { useLogin } from '@/hooks';
+import { useLogin, useUserDataQuery } from '@/hooks';
 import type { Name } from '@/api/types';
 
 import { Button } from '../Button';
 import { UserImage } from '../UserImage';
 import { Link } from '../Link';
-
-// TODO: Replace with actual user data When the API is ready
-const name = {
-  first: 'Omar',
-  last: 'Lawatey',
-};
-const image = null;
+import { Loader } from '../Loader';
 
 export const Profile = () => {
   const { logout } = useLogin();
   const [isPending, startTransition] = useTransition();
 
+  const userDataQuery = useUserDataQuery('minimal');
+
   return (
     <Flex gap={['4', null, '6']} align='center'>
-      <User name={name} image={image} />
+      {userDataQuery.isSuccess ? (
+        <User image={userDataQuery.data.image} name={userDataQuery.data.name} />
+      ) : (
+        <User.Skeleton />
+      )}
 
       <Button
         onClick={() => startTransition(logout)}
@@ -59,3 +59,11 @@ const User = (props: UserProps) => {
     </Link>
   );
 };
+
+const UserSkeleton = () => (
+  <Flex h={['6', '8']} w={['6', '8', '24']} rounded='full' bg='gray' justify='center' align='center'>
+    <Loader size='14' />
+  </Flex>
+);
+
+User.Skeleton = UserSkeleton;

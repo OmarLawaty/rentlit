@@ -1,18 +1,18 @@
 'use client';
 
-import { Box } from '@chakra-ui/react';
+import { Flex, type FlexProps } from '@chakra-ui/react';
 import { keyframes } from '@emotion/react';
 import { AiOutlineLoading3Quarters } from 'react-icons/ai';
 
-interface LoaderProps {
+interface LoaderProps extends FlexProps {
   size?: string | number;
   color?: string;
 }
 
 export const Loader = ({ size = '24px', ...props }: LoaderProps) => (
-  <Box animation={`${spin} 1s linear infinite`} fontSize='24px' {...props}>
+  <Flex justify='center' align='center' animation={`${spin} 1s linear infinite`} fontSize='24px' {...props}>
     <AiOutlineLoading3Quarters size={size} color='currentColor' />
-  </Box>
+  </Flex>
 );
 
 const spin = keyframes`

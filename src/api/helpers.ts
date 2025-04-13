@@ -7,7 +7,7 @@ export const setAccessToken = (token: string) => {
 };
 
 export const getAccessToken = () => {
-  if (typeof window === 'undefined') return null;
+  if (typeof window === 'undefined') return undefined;
 
   return cookies.get('authToken');
 };
