@@ -21,29 +21,30 @@ export const BookInfo = ({
   ...props
 }: BookInfoProps) => (
   <Flex
-    gap={['6', '10', '16', null, '24']}
+    gap={['6', '10', null, null, '24']}
     flexDir={['column-reverse', null, null, 'row']}
     w='full'
     justify='space-between'
-    align={['flex-start', null, null, 'center']}
+    align='center'
     h='fit'
     {...props}
   >
-    <Flex flexDir='column' flex='38' gap='9'>
+    <Flex flexDir='column' flex='38' gap='9' align={['center', null, null, 'start']}>
       <Flex flexDir='column' gap='6' color='#D6E0FF' fontSize={['sm', 'md', null, 'lg', 'xl']} lineHeight='1.4'>
         <Heading
           as='h2'
           color='white'
-          fontSize={['xl', '3xl', '5xl', null, '7xl']}
+          fontSize={['3xl', '5xl', null, '7xl']}
           lineHeight='1.1'
           fontWeight='semibold'
           lineClamp='1'
+          textAlign={['center', null, null, 'start']}
         >
           {title}
         </Heading>
 
         <Flex flexDir='column' gap='5'>
-          <Flex gap='5' flexWrap='wrap'>
+          <Flex gap='5' flexDir={['column', null, 'row']}>
             <Text>
               By{' '}
               <Text as='span' fontWeight='semibold' color='#EED1AC'>
@@ -69,7 +70,7 @@ export const BookInfo = ({
             </Text>
           </Flex>
 
-          <Flex gap='5' flexWrap='wrap'>
+          <Flex gap='5' flexDir={['column', null, 'row']}>
             <Text>
               Total books:{' '}
               <Text as='span' fontWeight='semibold' color='#EED1AC'>
@@ -90,7 +91,7 @@ export const BookInfo = ({
       </Flex>
 
       <Button
-        w='fit'
+        w={['full', null, '50%', 'fit']}
         fontSize={['xs', 'sm', 'md', 'lg', 'xl']}
         fontWeight='normal'
         fontFamily='bookRequest'
