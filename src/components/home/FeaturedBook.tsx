@@ -1,5 +1,7 @@
 'use client';
 
+import { Box } from '@chakra-ui/react';
+
 import { useFeaturedBookQuery } from '@/hooks';
 
 import { BookInfo } from '../books';
@@ -7,8 +9,8 @@ import { BookInfo } from '../books';
 export const FeaturedBook = () => {
   const featuredBookQuery = useFeaturedBookQuery();
 
-  if (featuredBookQuery.isLoading) return <div>Loading...</div>;
-  if (featuredBookQuery.isError) return <div>Error: {featuredBookQuery.error.message}</div>;
+  if (featuredBookQuery.isLoading) return null;
+  if (featuredBookQuery.isError) return <Box>Error: {featuredBookQuery.error.message}</Box>;
 
   return <BookInfo {...featuredBookQuery.data!} />;
 };

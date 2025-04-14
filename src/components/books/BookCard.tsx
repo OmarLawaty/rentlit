@@ -3,13 +3,15 @@ import { Flex, Text, type FlexProps } from '@chakra-ui/react';
 import type { Book } from '@/api/types';
 
 import { BookCover } from './BookCover';
+import { Link } from '../Link';
 
 interface BookCardProps extends Omit<FlexProps, 'color' | 'title'>, Book {
   type?: 'minimal' | 'full';
+  href?: string;
 }
 
-export const BookCard = ({ color, cover, title, genre, type = 'full', ...props }: BookCardProps) => (
-  <Flex flexDir='column' gap='4' w='44' {...props}>
+export const BookCard = ({ color, cover, title, genre, type = 'full', href, ...props }: BookCardProps) => (
+  <Flex flexDir='column' gap='4' w='44' pos='relative' {...props}>
     <BookCover color={color} image={cover} w='90%' />
 
     {type === 'full' && (
@@ -22,6 +24,18 @@ export const BookCard = ({ color, cover, title, genre, type = 'full', ...props }
           {genre}
         </Text>
       </Flex>
+    )}
+
+    {!!href && (
+      <Link
+        href={href}
+        prefetch
+        pos='absolute'
+        inset='0'
+        zIndex='1'
+        _hover={{ textDecoration: 'none' }}
+        _focus={{ boxShadow: 'none' }}
+      />
     )}
   </Flex>
 );

@@ -27,9 +27,7 @@ export default async function Layout({ children }: Readonly<{ children: React.Re
       >
         <Header />
 
-        <Flex as='main' flex='1'>
-          {children}
-        </Flex>
+        {children}
       </Flex>
     </HydrationBoundary>
   );
