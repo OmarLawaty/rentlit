@@ -10,7 +10,7 @@ interface BookCoverProps extends FlexProps {
 }
 
 export const BookCover = ({ image, color, ...props }: BookCoverProps) => (
-  <Flex pos='relative' {...props}>
+  <Flex pos='relative' w='36' {...props}>
     <BookCardBase color={color} />
 
     <Flex pos='absolute' top='0' right='0.5' w='87%' h='87.5%' overflow='hidden' roundedEnd='lg' justify='center'>
