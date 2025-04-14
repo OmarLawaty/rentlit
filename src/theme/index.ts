@@ -16,6 +16,7 @@ const themeConfig = defineConfig({
       fonts: {
         logo: { value: `'IBM Plex Serif', serif` },
         body: { value: `'IBM Plex Sans', sans-serif` },
+        bookRequest: { value: `'Bebas Neue', sans-serif` },
       },
     },
   },
