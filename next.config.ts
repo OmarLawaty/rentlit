@@ -4,6 +4,15 @@ const nextConfig: NextConfig = {
   experimental: {
     optimizePackageImports: ['@chakra-ui/react'],
   },
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'm.media-amazon.com',
+        pathname: '**',
+      },
+    ],
+  },
 };
 
 export default nextConfig;
