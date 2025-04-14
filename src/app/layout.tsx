@@ -7,6 +7,8 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang='en' suppressHydrationWarning>
       <Head>
+        <link rel='icon' href='/icon.svg' type='image/svg' sizes='any' />
+
         <link rel='preconnect' href='https://fonts.googleapis.com' />
         <link rel='preconnect' href='https://fonts.gstatic.com' crossOrigin='' />
         {/* eslint-disable @next/next/no-page-custom-font */}
