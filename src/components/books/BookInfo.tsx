@@ -21,15 +21,29 @@ export const BookInfo = ({
   ...props
 }: BookInfoProps) => {
   return (
-    <Flex gap='24' w='full' justify='space-between' align='center' {...props}>
+    <Flex
+      gap={['6', '10', '16', null, '24']}
+      flexDir={['column-reverse', null, null, 'row']}
+      w='full'
+      justify='space-between'
+      align={['flex-start', null, null, 'center']}
+      {...props}
+    >
       <Flex flexDir='column' flex='38' gap='9'>
-        <Flex flexDir='column' gap='6' color='#D6E0FF' fontSize='xl' lineHeight='1.4'>
-          <Heading as='h2' color='white' fontSize='7xl' lineHeight='1.1' fontWeight='semibold' lineClamp='1'>
+        <Flex flexDir='column' gap='6' color='#D6E0FF' fontSize={['sm', 'md', null, 'lg', 'xl']} lineHeight='1.4'>
+          <Heading
+            as='h2'
+            color='white'
+            fontSize={['xl', '3xl', '5xl', null, '7xl']}
+            lineHeight='1.1'
+            fontWeight='semibold'
+            lineClamp='1'
+          >
             {title}
           </Heading>
 
           <Flex flexDir='column' gap='5'>
-            <Flex gap='5'>
+            <Flex gap='5' flexWrap='wrap'>
               <Text>
                 By{' '}
                 <Text as='span' fontWeight='semibold' color='#EED1AC'>
@@ -44,7 +58,7 @@ export const BookInfo = ({
                 </Text>
               </Text>
 
-              <Text>
+              <Text whiteSpace='nowrap'>
                 <Icon asChild>
                   <BiStar />
                 </Icon>{' '}
@@ -55,7 +69,7 @@ export const BookInfo = ({
               </Text>
             </Flex>
 
-            <Flex gap='5'>
+            <Flex gap='5' flexWrap='wrap'>
               <Text>
                 Total books:{' '}
                 <Text as='span' fontWeight='semibold' color='#EED1AC'>
@@ -77,7 +91,7 @@ export const BookInfo = ({
 
         <Button
           w='fit'
-          fontSize='xl'
+          fontSize={['xs', 'sm', 'md', 'lg', 'xl']}
           fontWeight='normal'
           fontFamily='bookRequest'
           lineHeight='1'
@@ -91,10 +105,11 @@ export const BookInfo = ({
         </Button>
       </Flex>
 
-      <Flex pos='relative' w='full' flex='29'>
+      <Flex pos='relative' minW='60' w={['50%', null, null, 'full']} flex='29'>
         <BookCover zIndex='2' color={color} image={cover} flex='1' />
 
         <BookCover
+          display={['none', null, null, 'flex']}
           rotate='10deg'
           top='0.75rem'
           left='-20%'
