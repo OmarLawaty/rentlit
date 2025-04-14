@@ -18,13 +18,13 @@ export const PopularBooks = () => {
         Popular Books
       </Heading>
 
-      <Flex flex='1' gap={['8', '10', null, '14']} flexWrap='wrap' justifyContent='center'>
+      <Flex flex='1' gap={['4', '8', '10', null, '14']} flexWrap='wrap' justifyContent='center'>
         {popularBooksQuery.data.map(book => (
           <BookCard
             key={book._id}
             flex={['unset', null, null, null, '1']}
             minW={['14', '20', '28', '32']}
-            w={['80%', '44']}
+            w={['clamp(10rem , 30%, 15rem)', '44']}
             href={`/book/${book._id}`}
             {...book}
           />
