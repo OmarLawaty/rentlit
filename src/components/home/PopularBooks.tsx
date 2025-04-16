@@ -25,7 +25,7 @@ export const PopularBooks = () => {
             flex={['unset', null, null, null, '1']}
             minW={['14', '20', '28', '32']}
             w={['clamp(10rem , 30%, 15rem)', '44']}
-            href={`/book/${book._id}`}
+            href={`/books/${book._id}`}
             {...book}
           />
         ))}

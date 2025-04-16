@@ -39,6 +39,7 @@ export const BookInfo = ({
           fontWeight='semibold'
           lineClamp='1'
           textAlign={['center', null, null, 'start']}
+          title={title}
         >
           {title}
         </Heading>

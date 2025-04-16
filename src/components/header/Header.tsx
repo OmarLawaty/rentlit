@@ -11,6 +11,7 @@ import { Profile } from './Profile';
 export const Header = () => {
   const pathname = usePathname();
   const currentPathColor = (path: string) => (pathname === path ? '#EED1AC' : 'inherit');
+  const currentPathFontWeight = (path: string) => (pathname === path ? 'semibold' : 'normal');
 
   return (
     <Flex as='header' justify='space-between' align='center' w='full' gap={['4', '6', '8', '10']}>
@@ -18,7 +19,12 @@ export const Header = () => {
       <Logo variant='icon' display={['flex', 'none']} />
 
       <Flex as='nav' gap={['4', '6', '8', '10']} fontSize='xl'>
-        <Link href='/' display={['none', null, 'flex']} color={currentPathColor('/')} fontWeight='semibold'>
+        <Link
+          href='/'
+          display={['none', null, 'flex']}
+          color={currentPathColor('/')}
+          fontWeight={currentPathFontWeight('/')}
+        >
           Home
         </Link>
         <Link
@@ -31,7 +37,12 @@ export const Header = () => {
           <BiHome size='24' />
         </Link>
 
-        <Link href='/search' display={['none', null, 'flex']} color={currentPathColor('/search')}>
+        <Link
+          href='/search'
+          display={['none', null, 'flex']}
+          color={currentPathColor('/search')}
+          fontWeight={currentPathFontWeight('/search')}
+        >
           Search
         </Link>
         <Link
