@@ -16,11 +16,11 @@ export const BookCard = ({ color, cover, title, genres, type = 'full', href, ...
 
     {type === 'full' && (
       <Flex flexDir='column' gap='2.5'>
-        <Text fontWeight='semibold' fontSize='xl' lineHeight='shorter'>
+        <Text fontWeight='semibold' fontSize={['sm', 'xl']} lineHeight='shorter'>
           {title}
         </Text>
 
-        <Text color='#D6E0FF' fontSize='md' lineHeight='shorter' fontStyle='italic'>
+        <Text color='#D6E0FF' fontSize={['2xs', 'xs', 'md']} lineHeight='shorter' fontStyle='italic'>
           {genres.join(' / ')}
         </Text>
       </Flex>
