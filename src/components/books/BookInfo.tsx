@@ -14,7 +14,7 @@ export const BookInfo = ({
   title,
   description,
   author,
-  genre,
+  genres,
   rating,
   total_copies,
   available_copies,
@@ -55,7 +55,7 @@ export const BookInfo = ({
             <Text>
               Category:{' '}
               <Text as='span' fontWeight='semibold' color='#EED1AC'>
-                {genre}
+                {genres.join(' / ')}
               </Text>
             </Text>
 

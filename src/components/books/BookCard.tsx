@@ -10,7 +10,7 @@ interface BookCardProps extends Omit<FlexProps, 'color' | 'title'>, Book {
   href?: string;
 }
 
-export const BookCard = ({ color, cover, title, genre, type = 'full', href, ...props }: BookCardProps) => (
+export const BookCard = ({ color, cover, title, genres, type = 'full', href, ...props }: BookCardProps) => (
   <Flex flexDir='column' gap='4' w='44' pos='relative' {...props}>
     <BookCover color={color} image={cover} w='90%' />
 
@@ -21,7 +21,7 @@ export const BookCard = ({ color, cover, title, genre, type = 'full', href, ...p
         </Text>
 
         <Text color='#D6E0FF' fontSize='md' lineHeight='shorter' fontStyle='italic'>
-          {genre}
+          {genres.join(' / ')}
         </Text>
       </Flex>
     )}

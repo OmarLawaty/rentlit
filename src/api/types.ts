@@ -29,7 +29,7 @@ export interface Book {
   _id: string;
   title: string;
   author: string;
-  genre: string;
+  genres: string[];
   rating: number;
   total_copies: number;
   available_copies: number;
