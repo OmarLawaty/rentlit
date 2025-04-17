@@ -1,6 +1,3 @@
-'use client';
-
-import { useState } from 'react';
 import { Flex } from '@chakra-ui/react';
 
 import type { Name } from '@/api/types';
@@ -13,8 +10,6 @@ interface UserImageProps {
 }
 
 export const UserImage = ({ image, name }: UserImageProps) => {
-  const [isImageError, setIsImageError] = useState(false);
-
   const fullName = `${name.first} ${name.last}`;
   const initials = fullName
     .split(' ')
@@ -24,19 +19,9 @@ export const UserImage = ({ image, name }: UserImageProps) => {
 
   return (
     <Flex>
-      {!isImageError && (
-        <Image
-          src={image!}
-          alt=''
-          onError={() => setIsImageError(true)}
-          width='32'
-          height='32'
-          w={['6', null, '8']}
-          aspectRatio='square'
-        />
-      )}
-
-      {isImageError && (
+      {image ? (
+        <Image src={image!} alt='' width='32' height='32' w={['6', null, '8']} aspectRatio='square' rounded='full' />
+      ) : (
         <Flex
           w={['6', null, '8']}
           aspectRatio='square'
