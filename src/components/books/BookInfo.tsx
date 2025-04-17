@@ -37,7 +37,7 @@ export const BookInfo = ({
           fontSize={['3xl', '5xl', null, '7xl']}
           lineHeight='1.1'
           fontWeight='semibold'
-          lineClamp='1'
+          lineClamp='2'
           textAlign={['center', null, null, 'start']}
           title={title}
         >

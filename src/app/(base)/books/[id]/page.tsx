@@ -42,7 +42,7 @@ export default async function Book({ params }: BookProps) {
     }),
     queryClient.prefetchQuery({
       queryKey: useSimilarBooksQuery.queryKey(id),
-      queryFn: useSimilarBooksQuery.queryFn({ headers: { Authorization: `Bearer ${token}` } }),
+      queryFn: useSimilarBooksQuery.queryFn({ headers: { Authorization: `Bearer ${token}` }, params: { limit: 6 } }),
     }),
   ]);
 
@@ -50,10 +50,10 @@ export default async function Book({ params }: BookProps) {
 
   return (
     <HydrationBoundary state={dehydrate(queryClient)}>
-      <Flex as='main' flex='1' flexDir='column' gap={['8', '12', '16']}>
+      <Flex as='main' flex='1' flexDir='column' gap={['8', '12', '16', '20']}>
         <BookOverview />
 
-        <Flex gap={['8', '12', '16', '20']}>
+        <Flex gap={['8', '12', '16', '20']} flexDir={['column', null, null, 'row']}>
           <BookSummary />
 
           <SimilarBooks />

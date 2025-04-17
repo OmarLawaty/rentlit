@@ -12,11 +12,11 @@ interface BookCardProps extends Omit<FlexProps, 'color' | 'title'>, Book {
 
 export const BookCard = ({ color, cover, title, genres, type = 'full', href, ...props }: BookCardProps) => (
   <Flex flexDir='column' gap='4' w='44' pos='relative' {...props}>
-    <BookCover color={color} image={cover} w='90%' />
+    <BookCover color={color} image={cover} w='full' />
 
     {type === 'full' && (
       <Flex flexDir='column' gap='2.5'>
-        <Text fontWeight='semibold' fontSize={['sm', 'xl']} lineHeight='shorter'>
+        <Text fontWeight='semibold' fontSize={['sm', 'xl']} lineHeight='shorter' lineClamp={2}>
           {title}
         </Text>
 

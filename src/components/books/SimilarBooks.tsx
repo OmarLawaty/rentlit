@@ -1,6 +1,6 @@
 'use client';
 
-import { Flex, Heading } from '@chakra-ui/react';
+import { Flex, Grid, Heading } from '@chakra-ui/react';
 import { useParams } from 'next/navigation';
 
 import { useSimilarBooksQuery } from '@/hooks';
@@ -11,18 +11,18 @@ import { BookCard } from './BookCard';
 export const SimilarBooks = () => {
   const params = useParams<{ id: string }>();
 
-  const similarBooksQuery = useSimilarBooksQuery(params.id);
+  const similarBooksQuery = useSimilarBooksQuery({ id: params.id, limit: 6 });
 
   if (similarBooksQuery.isPending) return null;
   if (similarBooksQuery.isError) return <div>Error: {similarBooksQuery.error.message}</div>;
 
   return (
-    <Flex as='section' flex='15' flexDir='column' gap={['2', '4', '6']}>
-      <Heading as='h3' fontSize='3xl' color='#D6E0FF'>
+    <Flex as='section' flex='15' flexDir='column' gap={['4', '6']}>
+      <Heading as='h3' fontSize={['xl', '2xl', null, '3xl']} color='#D6E0FF'>
         Similar Books
       </Heading>
 
-      <SimilarBooksList similarBooks={similarBooksQuery.data!} />
+      <SimilarBooksList similarBooks={similarBooksQuery.data} />
     </Flex>
   );
 };
@@ -40,10 +40,28 @@ const SimilarBooksList = ({ similarBooks }: BooksListProps) => {
     );
 
   return (
-    <Flex gap={['2', '4', '6']} flexWrap='wrap' justify='center' align='center'>
+    <Grid
+      gap='6'
+      templateColumns={[
+        'repeat(auto-fit, minmax(7rem, 1fr))',
+        'repeat(auto-fit, 8rem)',
+        null,
+        'repeat(auto-fit, 9rem)',
+        'repeat(3, 1fr)',
+      ]}
+      justifyItems='center'
+      placeContent={['center', 'start']}
+    >
       {similarBooks.map(book => (
-        <BookCard key={book._id} href={`/books/${book._id}`} type='minimal' w='36' {...book} />
+        <BookCard
+          key={book._id}
+          href={`/books/${book._id}`}
+          type='minimal'
+          w='auto'
+          maxW={['36', null, null, null, '48']}
+          {...book}
+        />
       ))}
-    </Flex>
+    </Grid>
   );
 };

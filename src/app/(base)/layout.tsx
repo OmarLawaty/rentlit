@@ -22,7 +22,7 @@ export default async function Layout({ children }: Readonly<{ children: React.Re
         px={['6', '10', '14', '20', '6.25rem']}
         py={['8', '10', '12', '3.75rem']}
         flexDir='column'
-        gap={['6', '12', '16', '20']}
+        gap={['8', '12', '16', '20']}
         minH='100vh'
       >
         <Header />

@@ -14,12 +14,12 @@ export const BookSummary = () => {
   if (bookQuery.isError) return <div>Error: {bookQuery.error.message}</div>;
 
   return (
-    <Flex as='section' flex='20' flexDir='column' gap={['2', '4', '6']}>
-      <Heading as='h3' fontSize='3xl' color='#D6E0FF'>
+    <Flex as='section' flex='20' flexDir='column' gap={['2', '4', '6']} color='#D6E0FF'>
+      <Heading as='h3' fontSize={['xl', '2xl', null, '3xl']}>
         Summary
       </Heading>
 
-      <Text>{bookQuery.data!.summary}</Text>
+      <Text fontSize={['sm', 'md', null, 'xl']}>{bookQuery.data.summary}</Text>
     </Flex>
   );
 };
