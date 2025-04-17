@@ -1,15 +1,22 @@
 import Head from 'next/head';
 import NextTopLoader from 'nextjs-toploader';
+import type { Metadata } from 'next';
 
 import { Providers } from '@/components';
 import { AppBg } from '@/assets';
+
+export const metadata: Metadata = {
+  icons: {
+    icon: '/icon.svg',
+    shortcut: '/icon.svg',
+    apple: '/icon.svg',
+  },
+};
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang='en' suppressHydrationWarning>
       <Head>
-        <link rel='icon' href='/icon.svg' type='image/svg' sizes='any' />
-
         <link rel='preconnect' href='https://fonts.googleapis.com' />
         <link rel='preconnect' href='https://fonts.gstatic.com' crossOrigin='' />
         {/* eslint-disable-next-line @next/next/no-page-custom-font */}
