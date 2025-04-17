@@ -14,7 +14,7 @@ export const BookCover = ({ image, color, ...props }: BookCoverProps) => (
     <BookCardBase color={color} />
 
     <Flex pos='absolute' top='0' right='0.5' w='87%' h='87%' overflow='hidden' roundedEnd='lg' justify='center'>
-      <Image src={image} alt='' width='126' height='174' w='full' />
+      <Image src={image} alt='' width='126' height='174' w='full' loading='eager' quality={100} />
     </Flex>
   </Flex>
 );

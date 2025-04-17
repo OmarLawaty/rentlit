@@ -20,7 +20,17 @@ export const UserImage = ({ image, name }: UserImageProps) => {
   return (
     <Flex>
       {image ? (
-        <Image src={image!} alt='' width='32' height='32' w={['6', null, '8']} aspectRatio='square' rounded='full' />
+        <Image
+          src={image!}
+          alt=''
+          width='32'
+          height='32'
+          w={['6', null, '8']}
+          aspectRatio='square'
+          rounded='full'
+          priority
+          loading='eager'
+        />
       ) : (
         <Flex
           w={['6', null, '8']}

@@ -8,6 +8,6 @@ export const Image = chakra(
   {},
   {
     shouldForwardProp: props =>
-      ['src', 'alt', 'width', 'height', 'layout', 'priority', 'quality', 'title', 'onError'].includes(props),
+      ['src', 'alt', 'width', 'height', 'layout', 'priority', 'quality', 'title', 'onError', 'loading'].includes(props),
   }
 );

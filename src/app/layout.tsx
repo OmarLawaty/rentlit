@@ -4,6 +4,7 @@ import type { Metadata } from 'next';
 
 import { Providers } from '@/components';
 import { AppBg } from '@/assets';
+import Image from 'next/image';
 
 export const metadata: Metadata = {
   icons: {
@@ -33,12 +34,21 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           display: 'flex',
           flexDirection: 'column',
           flex: 1,
-          backgroundImage: `url("${AppBg.src}")`,
           backgroundSize: 'cover',
           fontFamily: '"IBM Plex Sans", sans-serif',
         }}
       >
         <NextTopLoader color='white' />
+        <Image
+          alt=''
+          objectFit='cover'
+          quality={100}
+          priority
+          loading='eager'
+          fetchPriority='high'
+          style={{ position: 'absolute', top: 0, insetInline: 0, height: '100%', zIndex: -1 }}
+          {...AppBg}
+        />
 
         <Providers>{children}</Providers>
       </body>
