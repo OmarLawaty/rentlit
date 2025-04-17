@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import NextTopLoader from 'nextjs-toploader';
 
 import { Providers } from '@/components';
 import { AppBg } from '@/assets';
@@ -30,6 +31,8 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           fontFamily: '"IBM Plex Sans", sans-serif',
         }}
       >
+        <NextTopLoader color='white' />
+
         <Providers>{children}</Providers>
       </body>
     </html>
