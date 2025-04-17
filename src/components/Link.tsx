@@ -2,8 +2,9 @@
 
 import type { ComponentProps } from 'react';
 import NextLink from 'next/link';
-import { useSearchParams } from 'next/navigation';
 import { chakra } from '@chakra-ui/react';
+
+import { getSearchParams } from '@/utils/helpers';
 
 const forwardProps = ['href', 'prefetch', 'target', 'children'] as const satisfies (keyof NextLinkProps)[];
 type ForwardProp = (typeof forwardProps)[number];
@@ -23,7 +24,7 @@ interface LinkProps extends Omit<ChakraNextLinkProps, ForwardProp>, Pick<NextLin
 }
 
 export const Link = ({ keepSearchParams, ...props }: LinkProps) => {
-  const searchParams = useSearchParams();
+  const searchParams = getSearchParams();
 
   const href = keepSearchParams ? `${props.href}?${searchParams}` : props.href;
 
