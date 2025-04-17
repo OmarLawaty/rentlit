@@ -1,10 +1,10 @@
 import Head from 'next/head';
 import NextTopLoader from 'nextjs-toploader';
 import type { Metadata } from 'next';
+import Image from 'next/image';
 
 import { Providers } from '@/components';
 import { AppBg } from '@/assets';
-import Image from 'next/image';
 
 export const metadata: Metadata = {
   icons: {
@@ -41,12 +41,20 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <NextTopLoader color='white' />
         <Image
           alt=''
-          objectFit='cover'
           quality={100}
           priority
           loading='eager'
           fetchPriority='high'
-          style={{ position: 'absolute', top: 0, insetInline: 0, height: '100%', zIndex: -1 }}
+          style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: '100%',
+            zIndex: -1,
+            objectFit: 'cover',
+            objectPosition: 'top',
+          }}
           {...AppBg}
         />
 
