@@ -29,7 +29,6 @@ export const BookCard = ({ color, cover, title, genres, type = 'full', href, ...
     {!!href && (
       <Link
         href={href}
-        prefetch
         pos='absolute'
         inset='0'
         zIndex='1'
