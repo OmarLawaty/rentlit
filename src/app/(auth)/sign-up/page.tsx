@@ -29,7 +29,7 @@ export default function Page() {
 
       <Box as='footer' textAlign='center' fontSize={['xs', 'sm', 'md']}>
         Have an account already?{' '}
-        <Link href='/login' prefetch color='#E7C9A5' fontWeight='bold'>
+        <Link href='/login' prefetch keepSearchParams color='#E7C9A5' fontWeight='bold'>
           Login
         </Link>
       </Box>

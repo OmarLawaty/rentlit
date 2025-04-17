@@ -29,7 +29,7 @@ export default function Page() {
 
       <Box as='footer' textAlign='center' fontSize={['xs', 'sm', 'md']}>
         Don&apos;t have an account already?{' '}
-        <Link href='/sign-up' prefetch color='#E7C9A5' fontWeight='bold'>
+        <Link href='/sign-up' prefetch keepSearchParams color='#E7C9A5' fontWeight='bold'>
           Register here
         </Link>
       </Box>

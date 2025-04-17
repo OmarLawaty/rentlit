@@ -11,7 +11,16 @@ export async function middleware(req: NextRequest) {
 
   if (isGuestOnlyPath && isTokenValid) return NextResponse.redirect(new URL('/', req.url));
 
-  if (!isGuestOnlyPath && !isTokenValid) return NextResponse.redirect(new URL('/login', req.url));
+  const isGuestAccessingProtectedRoute = !isGuestOnlyPath && !isTokenValid;
+  if (isGuestAccessingProtectedRoute) {
+    const fromPath = encodeURI(req.nextUrl.pathname);
+    if (!!fromPath) {
+      req.nextUrl.searchParams.set('from', fromPath);
+      req.nextUrl.pathname = '/login';
+    }
+
+    return NextResponse.redirect(req.nextUrl);
+  }
 
   return NextResponse.next();
 }
