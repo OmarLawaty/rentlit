@@ -5,3 +5,10 @@ export const getSearchParams = () => {
 };
 
 export const isClient = () => typeof window !== 'undefined';
+
+export const getPageValue = (page: string | number | null) => {
+  const parsedPage = Number(page);
+  if (!page && isNaN(parsedPage)) return undefined;
+
+  return parsedPage > 1 ? parsedPage : undefined;
+};

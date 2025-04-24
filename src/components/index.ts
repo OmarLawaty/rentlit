@@ -11,3 +11,5 @@ export * from './header/Header';
 export * from './UserImage';
 export * from './books';
 export * from './home';
+export * from './search';
+export * from './pagination';

@@ -13,10 +13,12 @@ export async function middleware(req: NextRequest) {
 
   const isGuestAccessingProtectedRoute = !isGuestOnlyPath && !isTokenValid;
   if (isGuestAccessingProtectedRoute) {
-    const fromPath = encodeURI(req.nextUrl.pathname);
+    const fromPath = encodeURI(req.nextUrl.pathname + req.nextUrl.search);
     if (!!fromPath) {
-      req.nextUrl.searchParams.set('from', fromPath);
-      req.nextUrl.pathname = '/login';
+      const newURL = new URL('/login', req.url);
+      newURL.searchParams.set('from', fromPath);
+
+      return NextResponse.redirect(newURL);
     }
 
     return NextResponse.redirect(req.nextUrl);

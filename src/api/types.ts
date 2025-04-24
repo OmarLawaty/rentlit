@@ -43,3 +43,14 @@ export interface Book {
 export interface ErrorResponse {
   error: string;
 }
+
+export interface PaginatedResponse<T> {
+  results: T[];
+  meta: PaginationMetadata;
+}
+
+export interface PaginationMetadata {
+  total: number;
+  currentPage: number;
+  pagesCount: number;
+}

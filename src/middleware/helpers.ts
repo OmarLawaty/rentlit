@@ -1,12 +1,7 @@
-import { QueryClient } from '@tanstack/react-query';
+import { rentlit } from '@/api';
 
-import { useCheckTokenQuery } from '@/hooks';
-
-export const checkTokenValidity = async (token: string) => {
-  const queryClient = new QueryClient();
-
-  return await queryClient.fetchQuery({
-    queryKey: useCheckTokenQuery.queryKey(token),
-    queryFn: useCheckTokenQuery.queryFn,
-  });
-};
+export const checkTokenValidity = async (token: string) =>
+  rentlit
+    .get<boolean>('/auth/check-token', { headers: { Authorization: `Bearer ${token}` } })
+    .then(res => res.data)
+    .catch(() => false);

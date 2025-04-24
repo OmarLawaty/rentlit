@@ -33,7 +33,6 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           minHeight: '100vh',
           display: 'flex',
           flexDirection: 'column',
-          flex: 1,
           backgroundSize: 'cover',
           fontFamily: '"IBM Plex Sans", sans-serif',
         }}

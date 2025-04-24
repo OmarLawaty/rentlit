@@ -11,6 +11,11 @@ const nextConfig: NextConfig = {
         hostname: 'm.media-amazon.com',
         pathname: '**',
       },
+      {
+        protocol: 'https',
+        hostname: 'covers.openlibrary.org',
+        pathname: '**',
+      },
     ],
   },
 };

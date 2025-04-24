@@ -38,19 +38,19 @@ export const Header = () => {
         </Link>
 
         <Link
-          href='/search'
+          href='/books'
           display={['none', null, 'flex']}
-          color={currentPathColor('/search')}
-          fontWeight={currentPathFontWeight('/search')}
+          color={currentPathColor('/books')}
+          fontWeight={currentPathFontWeight('/books')}
         >
           Search
         </Link>
         <Link
-          href='/search'
+          href='/books'
           display={['flex', null, 'none']}
           justifyContent='center'
           alignItems='center'
-          color={currentPathColor('/search')}
+          color={currentPathColor('/books')}
         >
           <BiSearchAlt size='24' />
         </Link>

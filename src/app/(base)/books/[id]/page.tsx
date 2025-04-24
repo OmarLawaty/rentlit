@@ -6,10 +6,9 @@ import { Flex } from '@chakra-ui/react';
 
 import { BookOverview, BookSummary, SimilarBooks } from '@/components';
 import { getBook, useBookQuery, useSimilarBooksQuery } from '@/hooks';
+import type { PagePropsWithParams } from '@/types';
 
-interface BookProps {
-  params: Promise<{ id: string }>;
-}
+type BookProps = PagePropsWithParams<{ id: string }>;
 
 export async function generateMetadata({ params }: BookProps): Promise<Metadata> {
   const id = (await params).id;

@@ -48,17 +48,15 @@ interface UserProps {
   name: Name;
 }
 
-const User = (props: UserProps) => {
-  return (
-    <Link href='/profile' display='flex' justifyContent='center' alignItems='center' gap='1.5'>
-      <UserImage {...props} />
+const User = (props: UserProps) => (
+  <Link href='/profile' display='flex' justifyContent='center' alignItems='center' gap='1.5'>
+    <UserImage {...props} />
 
-      <Text fontSize='xl' fontWeight='semibold' color='#D6E0FF' display={['none', null, 'block']}>
-        {props.name.first}
-      </Text>
-    </Link>
-  );
-};
+    <Text fontSize='xl' fontWeight='semibold' color='#D6E0FF' display={['none', null, 'block']}>
+      {props.name.first}
+    </Text>
+  </Link>
+);
 
 const UserSkeleton = () => (
   <Flex h={['6', '8']} w={['6', '8', '24']} rounded='full' bg='gray' justify='center' align='center'>
