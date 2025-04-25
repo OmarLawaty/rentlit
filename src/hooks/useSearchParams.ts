@@ -12,14 +12,21 @@ export const useSearchParam = () => {
 
   const set = useCallback(
     (
-      key: string,
-      value: string | number | boolean | undefined | null,
+      updates: Record<string, string | number | boolean | null | undefined> | string,
+      value?: string | number | boolean | null | undefined,
       method: keyof Omit<AppRouterInstance, 'prefetch'> = 'replace'
     ) => {
       const params = new URLSearchParams(Array.from(searchParams.entries()));
 
-      if (value === undefined || value === null || value === '') params.delete(key);
-      else params.set(key, value.toString());
+      if (typeof updates === 'string') {
+        if (value === undefined || value === null || value === '') params.delete(updates);
+        else params.set(updates, value.toString());
+      } else {
+        for (const [key, val] of Object.entries(updates)) {
+          if (val === undefined || val === null || val === '') params.delete(key);
+          else params.set(key, val.toString());
+        }
+      }
 
       const newQuery = params.toString() ? `?${params.toString()}` : '';
       router[method](`${pathname}${newQuery}`, { scroll: false });

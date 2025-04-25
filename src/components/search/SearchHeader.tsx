@@ -15,7 +15,7 @@ export const SearchHeader = () => {
   const debouncedSearch = useDebounce(search);
 
   useEffect(() => {
-    searchParams.set('search', debouncedSearch ? debouncedSearch : null);
+    searchParams.set({ search: debouncedSearch, page: undefined });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [debouncedSearch]);
 

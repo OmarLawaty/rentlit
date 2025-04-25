@@ -14,6 +14,7 @@ import { PaginationPagesButtons } from './PaginationPagesButtons';
 export const PaginationFooter = ({ total, pagesCount }: PaginationMetadata) => {
   const searchParams = useSearchParam();
   const page = searchParams.get('page');
+  const search = searchParams.get('search');
 
   const [currentPage, setCurrentPage] = useState(getPage(page, pagesCount));
 
@@ -23,6 +24,14 @@ export const PaginationFooter = ({ total, pagesCount }: PaginationMetadata) => {
     searchParams.set('page', currentPage > 1 ? currentPage : null);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentPage]);
+
+  useEffect(() => {
+    const parsedPage = getPage(page, pagesCount);
+    if (parsedPage === currentPage) return;
+
+    setCurrentPage(parsedPage);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [search]);
 
   if (total === 0 || pagesCount === 1) return null;
 
