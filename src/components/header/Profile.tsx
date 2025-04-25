@@ -49,7 +49,7 @@ interface UserProps {
 }
 
 const User = (props: UserProps) => (
-  <Link href='/profile' display='flex' justifyContent='center' alignItems='center' gap='1.5'>
+  <Link href='/profile' isDisabled display='flex' justifyContent='center' alignItems='center' gap='1.5'>
     <UserImage {...props} />
 
     <Text fontSize='xl' fontWeight='semibold' color='#D6E0FF' display={['none', null, 'block']}>
