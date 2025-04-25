@@ -60,7 +60,6 @@ const SearchResultsList = ({ books }: BooksListProps) => {
         'repeat(6, 1fr)',
       ]}
       justifyItems='center'
-      placeContent={['center', 'start']}
       flex='1'
     >
       {books.map(book => (
