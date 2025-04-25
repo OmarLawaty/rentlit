@@ -4,3 +4,4 @@ export { default as AppBg } from './app-bg.png';
 export * from './LogoutIcon';
 export * from './BookCardBase';
 export * from './BookOpenFilledIcon';
+export * from './NoResultsFoundIcon';

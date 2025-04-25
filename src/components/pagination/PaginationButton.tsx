@@ -9,12 +9,13 @@ interface PaginationButtonProps extends ButtonProps {
 export const PaginationButton = ({ isActive, ...props }: PaginationButtonProps) => (
   <Button
     variant={isActive ? 'primary' : 'secondary'}
-    w='12'
+    w={['7', '8', '10', '12']}
     h='auto'
+    minW='auto'
     minH='auto'
     aspectRatio='square'
-    fontSize='lg'
-    p='1.5'
+    fontSize={['sm', null, 'md', 'lg']}
+    p={['0.5', null, '1', '1.5']}
     {...props}
   />
 );

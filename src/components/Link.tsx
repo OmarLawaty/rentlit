@@ -33,7 +33,7 @@ export const Link = ({ keepSearchParams, isDisabled, ...props }: LinkProps) => {
 
   if (isDisabled)
     return (
-      <Button isDisabled bg='transparent' p='0' minH='auto' h='auto' w='auto' {...props}>
+      <Button isDisabled bg='transparent' p='0' minH='auto' h='auto' minW='auto' w='auto' {...props}>
         {props.children}
       </Button>
     );

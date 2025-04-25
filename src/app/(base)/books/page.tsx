@@ -32,7 +32,7 @@ export default async function Search({ searchParams }: PagePropsWithSearchParams
 
   return (
     <HydrationBoundary state={dehydrate(queryClient)}>
-      <Flex as='main' flexDir='column' align='center' gap='16' flex='1'>
+      <Flex as='main' flexDir='column' align='center' gap={['8', '10', '12', '16']} flex='1'>
         <SearchHeader />
 
         <SearchResults />
