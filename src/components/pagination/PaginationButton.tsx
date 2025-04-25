@@ -9,7 +9,7 @@ interface PaginationButtonProps extends ButtonProps {
 export const PaginationButton = ({ isActive, ...props }: PaginationButtonProps) => (
   <Button
     variant={isActive ? 'primary' : 'secondary'}
-    w={['7', '8', '10', '12']}
+    w={['8', '10', '12']}
     h='auto'
     minW='auto'
     minH='auto'

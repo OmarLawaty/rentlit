@@ -29,7 +29,14 @@ const ShortenedPaginationButtons = ({
           1
         </PaginationButton>
 
-        {currentPage - 2 !== 1 && <DotsButton />}
+        {currentPage - 2 !== 1 &&
+          (currentPage - 3 > 1 ? (
+            <DotsButton />
+          ) : (
+            <PaginationButton onClick={() => onPageChange(2)} isActive={currentPage === 2}>
+              2
+            </PaginationButton>
+          ))}
       </>
     )}
 
@@ -51,7 +58,14 @@ const ShortenedPaginationButtons = ({
 
     {currentPage + 1 < pagesCount && (
       <>
-        {currentPage + 2 !== pagesCount && <DotsButton />}
+        {currentPage + 2 !== pagesCount &&
+          (currentPage + 3 < pagesCount ? (
+            <DotsButton />
+          ) : (
+            <PaginationButton onClick={() => onPageChange(pagesCount - 1)} isActive={currentPage === pagesCount - 1}>
+              {pagesCount - 1}
+            </PaginationButton>
+          ))}
 
         <PaginationButton onClick={() => onPageChange(pagesCount)} isActive={currentPage === pagesCount}>
           {pagesCount}

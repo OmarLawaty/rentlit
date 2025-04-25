@@ -23,7 +23,7 @@ export const PaginationFooter = ({ total, pagesCount }: PaginationMetadata) => {
   if (total === 0 || pagesCount === 1) return null;
 
   return (
-    <Flex ms='auto' me={['auto', null, null, '0']} gap={['1', '1.5', '2.5']}>
+    <Flex ms='auto' me={['auto', null, null, '0']} gap={['1.5', null, '2.5']}>
       <PaginationButton onClick={() => onPageChange(page - 1)} disabled={page === 1}>
         <CgChevronLeft />
       </PaginationButton>
